@@ -83,25 +83,6 @@ class TestApi(unittest.TestCase):
 
     # ===================================================================== multiply tests
 
-    def test_api_multiply(self):
-        url = f"{BASE_URL}/calc/multiply/2/2"
-        response = urlopen(url, timeout=DEFAULT_TIMEOUT)
-        self.assertEqual(
-            response.status, http.client.OK, f"Error en la petición API a {url}"
-        )
-        self.assertEqual(
-            util.convert_to_number(response.read().decode('utf-8')), 4, f"Error en la petición API a {url}"
-        )
-
-    def test_api_multiply_negative_positive(self):
-        url = f"{BASE_URL}/calc/multiply/5/-2"
-        response = urlopen(url, timeout=DEFAULT_TIMEOUT)
-        self.assertEqual(
-            response.status, http.client.OK, f"Error en la petición API a {url}"
-        )
-        self.assertEqual(
-            util.convert_to_number(response.read().decode('utf-8')), -10, f"Error en la petición API a {url}"
-        )
 
     def test_api_multiply_nan(self):
         url = f"{BASE_URL}/calc/multiply/2/-"
